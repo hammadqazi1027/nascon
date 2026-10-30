@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    HUB = 'DOCKERHUB_USER'
+    HUB = 'hammadqazi1027'
     KUBECONFIG = '/etc/rancher/k3s/k3s.yaml'
   }
   stages {
