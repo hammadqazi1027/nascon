@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NASCON Army Event Management</title>
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<header><b>NASCON</b><nav><a class="on" href="index.html">Home</a><a href="register.html">Register</a></nav></header>
+<main>
+<h1>Army events, organised in one place.</h1>
+<p class="lead">Browse the upcoming army events and reserve your place. Registration takes under a minute.</p>
+<ul class="events">
+<li><strong>Army Sports Gala</strong><span>Sports ground</span></li>
+<li><strong>Defence Tech Expo</strong><span>Exhibition hall</span></li>
+<li><strong>Cadet Debate Championship</strong><span>Main auditorium</span></li>
+<li><strong>Annual Marathon</strong><span>Cantonment route</span></li>
+</ul>
+<a class="btn" href="register.html">Register for an event</a>
+<p id="count"></p>
+</main>
+<script>
+fetch('/api/registrations/count').then(r=>r.json()).then(d=>{
+  document.getElementById('count').textContent=d.count+' people have registered so far.';
+}).catch(()=>{});
+</script>
+</body></html>

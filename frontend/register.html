@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Register - NASCON</title>
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<header><b>NASCON</b><nav><a href="index.html">Home</a><a class="on" href="register.html">Register</a></nav></header>
+<main>
+<h1>Register for an event</h1>
+<form id="f">
+<label>Full name<input name="name" required></label>
+<label>Email<input name="email" type="email" required></label>
+<label>Phone<input name="phone" type="tel"></label>
+<label>Event
+<select name="event" required>
+<option value="">Choose an event</option>
+<option>Army Sports Gala</option>
+<option>Defence Tech Expo</option>
+<option>Cadet Debate Championship</option>
+<option>Annual Marathon</option>
+</select></label>
+<button class="btn" type="submit">Save registration</button>
+</form>
+<p id="msg" role="status"></p>
+</main>
+<script>
+document.getElementById('f').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const m=document.getElementById('msg');
+  const body=Object.fromEntries(new FormData(e.target));
+  try{
+    const r=await fetch('/api/register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    const d=await r.json();
+    if(!r.ok) throw new Error(d.error||'Registration failed');
+    m.className='ok';m.textContent='Registered. Your reference number is '+d.id+'.';
+    e.target.reset();
+  }catch(err){m.className='err';m.textContent=err.message+'. Check the fields and try again.';}
+});
+</script>
+</body></html>

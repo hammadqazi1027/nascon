@@ -1,0 +1,21 @@
+:root{--bg:#eceee6;--ink:#1f2617;--olive:#3b4a2a;--brass:#a8832f;--line:#c9cdbb}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Segoe UI",Arial,sans-serif}
+header{background:var(--olive);color:#f2f0e4;padding:14px 6vw;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+header b{font:700 1.3rem "Arial Narrow",Arial,sans-serif;letter-spacing:.04em}
+nav a{color:#f2f0e4;margin-left:20px;text-decoration:none;padding-bottom:3px}
+nav a.on,nav a:hover{border-bottom:2px solid var(--brass)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+main{max-width:860px;margin:0 auto;padding:48px 6vw}
+h1{font:700 clamp(2rem,6vw,3.4rem)/1.05 "Arial Narrow",Arial,sans-serif;margin:0 0 14px;color:var(--olive)}
+.lead{font-size:1.15rem;max-width:56ch}
+.btn{display:inline-block;background:var(--brass);color:#fff;border:0;padding:12px 26px;font:600 1rem inherit;text-decoration:none;cursor:pointer}
+.btn:hover{background:#8d6c22}
+ul.events{list-style:none;padding:0;margin:36px 0;border-top:2px solid var(--olive)}
+ul.events li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+ul.events span{color:#5b6350}
+form{display:grid;gap:18px;margin-top:24px}
+label{display:grid;gap:6px;font-weight:600}
+input,select{padding:11px;border:1px solid #8c927c;background:#fff;font:inherit}
+#msg{margin-top:18px;font-weight:600}
+.ok{color:#2c6b2f}.err{color:#a02a1f}
